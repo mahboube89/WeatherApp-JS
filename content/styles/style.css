@@ -1,0 +1,211 @@
+/* Reset styles for all elements */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+}
+
+/* Define custom color variables */
+:root {
+    --white: #ffffff;
+    --off-white: #e5e5e5;
+    --transp-white-1: rgba(255, 255, 255, 0.8);
+    --transp-white-2: rgba(255, 255, 255, 0.2);
+    --shadow: rgba(3, 46, 87, 0.2);
+    --lila: #330636;
+    --error: rgb(167, 56, 56)
+}
+
+body {
+    height: 150vh;
+    background:url(../images/background-by-matt-wang-unsplash.jpg) no-repeat ;
+    background-size:cover;   
+}
+
+/* Styles for the main wrapper */
+.wrapper{
+    width:90vw;
+    max-width:600px;
+    min-width: 350px;
+    position:relative;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+}
+
+/* Styles for the container element */
+.container{
+    width: 100%;
+    background: var(--transp-white-2);
+    backdrop-filter: blur(2px);
+    padding: 3em 1.8em;
+    margin-top: 50px; /*********************************/
+    border: 2px solid var(--transp-white-2);
+    border-radius: 0.6em;
+    box-shadow: 0 0 20px var(--shadow);
+    text-align: center;
+}
+
+/* Styles for the title container (welcome to the weather app)*/
+.container__title{
+    margin-bottom:1.8em;
+    color: var(--lila);
+}
+
+.highlight{
+    color:antiquewhite;
+    text-shadow: 0.1em 0.1em 0.1em var(--shadow);
+}
+
+/* Search linie (input element) and search button relative to each other  */
+.container__input{
+    display: flex;
+    gap: 1.25em;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styles for the input and button elements */
+.container input,
+.container button {
+    outline: none;
+    font-size:1em;
+    border: none;
+}
+
+/* Styles for the input element */
+#city-name {
+    width: 100%;
+    background-image: url(../images/searchIcon.png);
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: left center;  /* Adjust the icon position */
+    background-clip: padding-box; /* Ensure the icon doesn't overlap with the text */
+    text-indent: 30px;  /* Add left padding to accommodate the icon */
+    filter: brightness(150%);
+    padding : 0.7em 2.5em 0.7em 0.7em;
+    background-color: transparent;
+    border-bottom: 2px solid var(--transp-white-1);
+    color: var(--lila);   
+    font-weight: 300;   
+}
+
+/* Styles for the input placeholder */
+.container input::placeholder {
+    color: var(--transp-white-1);
+    padding-left: 0.3em;
+}
+
+/* Styles for the focused input */
+.container input:focus{
+    border-color: var(--white);
+}
+
+/* Styles for the button element */
+#search-btn {
+    color: var(--lila);
+    background: var(--transp-white-2);
+    border: 2px solid var(--transp-white-2);
+    border-radius: 0.6em;
+    padding: 0.5em 1em;
+    margin-bottom: -30px;
+    box-shadow: 0 0.1em 0.3em 0.1em var(--shadow);
+    cursor: pointer;
+    letter-spacing:0.12em;
+}
+
+/* Styles for the button hover effect */
+#search-btn:hover{
+    border-color: var(--off-white);
+}
+
+.container__show-result {
+    transition:  all 180ms ease-in 80ms;
+}
+/* Styles for the city name */
+.container__show-result h2 {
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-top:2em;
+    text-shadow: 0.1em 0.1em 0.1em var(--shadow);
+}
+
+.container__date {
+    color: var(--white);
+    display: block;
+    margin-bottom: 1em;
+}
+
+/* Styles for the temerature */
+.container__show-result h1{
+    font-size: 2.3em;
+    color: var(--lila);
+    margin-bottom: 0.5em;
+}
+
+/* Styles for weather and description */
+.container__weather-data ,
+.container__weather-description {
+    color : var(--lila);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Styles for the weather icon */
+.container__show-result img {
+    width: 5em;
+}
+
+/* Styles for the temperature container */
+.details__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.details__container div {
+    width: 120px;
+    padding: 0.3em 1em;
+    border-right: 1px solid var(--transp-white-1);
+}
+
+/* Styles for the last temperature element */
+.details__container div:last-child {
+    border:none;
+}
+
+/* Styles for the temperature title */
+.details__container .title {
+    font-weight:400;
+    color:var(--lila);
+    padding-bottom: 1em;
+    
+}
+
+/* Styles for the temperature value */
+.details__container  .temp {
+    font-weight: 300;
+    color: var(--lila);
+}
+
+/* Styles for the error message */
+.message {
+    color: var(--error);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 3em;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        /*when the screen width is 768 pixels or less, the font size will be reduced to 12 pixels*/
+        font-size: 12px;
+    }
+}
